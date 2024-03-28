@@ -1,0 +1,141 @@
+@font-face {
+  // This is parsed as a normal function call that takes a quoted string.
+  font-family: 'Roboto';
+  src: url('./public/font/Roboto-Regular.ttf');
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+.main {
+  background-color: #c0dbd9;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.header {
+  background-color: #7faff6;
+  padding: 30px;
+  margin-bottom: 15px;
+  &__open {
+    background: #a5c7f9;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23.44px;
+    text-align: left;
+  }
+}
+.grid {
+  background-color: #b3f95a;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(41, 1fr);
+  grid-auto-rows: 198px;
+  counter-reset: div;
+  margin-bottom: 15px;
+  //   counter-reset: div;
+  //   grid-column: auto / span 2;
+  &__item {
+    background-color: #8ad191;
+    font-size: 53px;
+    font-weight: 400;
+    line-height: 62.11px;
+    text-align: center;
+    display: flex;
+    &:nth-child(n) {
+      grid-column: auto / span 14;
+    }
+    &:nth-child(2n) {
+      grid-column: auto / span 21;
+    }
+    &:nth-child(3n) {
+      grid-column: auto / span 6;
+    }
+    &:nth-child(4n) {
+      grid-column: auto / span 35;
+    }
+    &:nth-child(5n) {
+      grid-column: auto / span 6;
+    }
+    &::before {
+      counter-increment: div;
+      content: counter(div);
+      color: #fff;
+      margin: auto;
+    }
+  }
+}
+.flex {
+  display: flex;
+  background-color: #88b5bf;
+  padding: 30px;
+  justify-content: space-between;
+  &__item {
+    width: 23%;
+    background-color: #0d89b0;
+    aspect-ratio: 9/7;
+  }
+}
+.footer {
+  height: 100px;
+  background-color: #7faff6;
+  margin-top: 100px;
+}
+
+.modal {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  &__block {
+    width: 400px;
+    padding: 15px 15px 170px 15px;
+    margin: 0 auto;
+    margin-top: 7%;
+    background-color: #fff;
+    &__close {
+      display: flex;
+      justify-content: end;
+      margin-bottom: 115px;
+      &__icon {
+        background-color: #7faff6;
+        color: #fff;
+        padding: 10px 17px;
+        border-radius: 5px;
+      }
+    }
+    &__info {
+      text-align: center;
+      font-size: 53px;
+      font-weight: 400;
+      line-height: 62.11px;
+    }
+  }
+}
+.hidden {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  .main {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .modal {
+    &__block {
+      width: 100%;
+    }
+  }
+}
